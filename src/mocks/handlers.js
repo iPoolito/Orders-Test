@@ -9,7 +9,7 @@ export const handlers = [
             ])
         )
     }),
-    rest.get('http://localhost:3030/toopings', (req, res, ctx) => {
+    rest.get('http://localhost:3030/toppings', (req, res, ctx) => {
         return res(
             ctx.json([
                 {
