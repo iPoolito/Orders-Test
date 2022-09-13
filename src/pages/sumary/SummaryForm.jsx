@@ -3,13 +3,15 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Popover from 'react-bootstrap/Popover'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import { useNavigate } from 'react-router-dom'
 
 export function SummaryForm() {
     const [isButtonEnable, setIsButtonEnable] = React.useState(false)
-
+    const navigate = useNavigate()
 
     const HanldeTermsAndConditions = (event) => {
         setIsButtonEnable(event.target.checked)
+
     }
 
     const popover = (
@@ -30,10 +32,10 @@ export function SummaryForm() {
         </span>
     )
     return (
-        <Form>
+        <Form onSubmit={() => navigate('/order')}>
             <Form.Group controlId='terms-and-conditions'>
                 <Form.Check type="checkbox" checked={isButtonEnable} onChange={HanldeTermsAndConditions} label={checkboxLabel} />
-                <Button variant='primary' type='submit' disabled={!isButtonEnable}> Confirm Order</Button>
+                <Button variant='primary' type='submit' disabled={!isButtonEnable} > Confirm Order</Button>
             </Form.Group>
         </Form>
     )
